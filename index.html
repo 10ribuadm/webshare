@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Toolkit - Tools Keren Anak Muda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap');
+        body { font-family: 'Outfit', sans-serif; }
+        .gradient-primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+    <nav class="bg-white border-b sticky top-0 z-50 p-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-extrabold text-indigo-600 tracking-tighter">ARRISALAH TOOLS</h1>
+            <div class="flex gap-4 text-sm font-semibold text-slate-600">
+                <a href="#wa" class="hover:text-indigo-600">Status WA</a>
+                <a href="#direct" class="hover:text-indigo-600">Kirim WA</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-primary py-12 text-center text-white px-4">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Toolkit Viral 2026 🚀</h2>
+        <p class="opacity-90">Bikin status WA keren & kirim chat tanpa simpan nomor.</p>
+    </header>
+
+    <main class="max-w-3xl mx-auto p-6 space-y-8 -mt-8">
+        
+        <section id="wa" class="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-indigo-100 p-3 rounded-2xl text-indigo-600"><i class="fa-solid fa-wand-magic-sparkles text-xl"></i></div>
+                <h3 class="text-xl font-bold">Status WA Aesthetic</h3>
+            </div>
+            <input type="text" id="waInput" oninput="convertWA()" placeholder="Tulis statusmu di sini..." class="w-full p-4 bg-slate-50 rounded-2xl border-none ring-2 ring-slate-100 focus:ring-indigo-500 outline-none transition mb-4">
+            
+            <div id="waResults" class="grid gap-3">
+                <div class="p-4 bg-slate-50 rounded-xl text-slate-400 italic text-sm text-center border-2 border-dashed">Hasil akan muncul otomatis saat Anda mengetik...</div>
+            </div>
+        </section>
+
+        <section id="direct" class="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-green-100 p-3 rounded-2xl text-green-600"><i class="fa-brands fa-whatsapp text-xl"></i></div>
+                <h3 class="text-xl font-bold">Kirim WA Tanpa Simpan Nomor</h3>
+            </div>
+            <div class="flex gap-2">
+                <input type="number" id="phoneNum" placeholder="Contoh: 62812345xxx" class="flex-1 p-4 bg-slate-50 rounded-2xl border-none ring-2 ring-slate-100 focus:ring-green-500 outline-none">
+                <button onclick="sendWA()" class="bg-green-500 hover:bg-green-600 text-white px-6 rounded-2xl font-bold transition">Chat!</button>
+            </div>
+            <p class="text-xs text-slate-400 mt-3">*Gunakan kode negara (62) di depan nomor HP.</p>
+        </section>
+
+        <div class="bg-slate-200 h-24 rounded-2xl flex items-center justify-center text-slate-500 text-xs tracking-widest uppercase">
+            Iklan AdSense Disini
+        </div>
+
+    </main>
+
+    <div class="max-w-3xl mx-auto px-6 mb-20">
+        <div class="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl">
+            <div class="relative z-10">
+                <span class="bg-indigo-500 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Premium Asset</span>
+                <h2 class="text-3xl font-black mt-4 mb-2 italic">THIS DOMAIN IS FOR SALE</h2>
+                <p class="text-slate-400 mb-6 text-sm">Domain <strong>arrisalahbslotim.org</strong> memiliki nilai tinggi untuk SEO dan Branding.</p>
+                <div class="flex items-end gap-2 mb-8">
+                    <span class="text-4xl font-extrabold text-white">$9,500</span>
+                    <span class="text-slate-400 pb-1">USD (Nego)</span>
+                </div>
+                <a href="https://wa.me/628123456789" class="inline-block bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-400 hover:text-white transition shadow-lg">
+                    <i class="fa-solid fa-cart-shopping mr-2"></i> Beli Domain Sekarang
+                </a>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-600 rounded-full blur-3xl opacity-30"></div>
+        </div>
+    </div>
+
+    <script>
+        function convertWA() {
+            const input = document.getElementById('waInput').value;
+            const res = document.getElementById('waResults');
+            if(!input) { res.innerHTML = "..."; return; }
+
+            const styles = [
+                { name: "Bold", text: `*${input}*` },
+                { name: "Italic", text: `_${input}_` },
+                { name: "Monospace", text: `\`\`\`${input}\`\`\`` },
+                { name: "Strikethrough", text: `~${input}~` }
+            ];
+
+            res.innerHTML = styles.map(s => `
+                <div class="flex justify-between items-center p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="font-medium text-slate-700">${s.text}</span>
+                    <button onclick="copyText('${s.text}')" class="text-indigo-600 text-sm font-bold hover:underline">Salin</button>
+                </div>
+            `).join('');
+        }
+
+        function sendWA() {
+            const num = document.getElementById('phoneNum').value;
+            if(!num) return alert("Isi nomor dulu!");
+            window.open(`https://wa.me/${num}`, '_blank');
+        }
+
+        function copyText(val) {
+            navigator.clipboard.writeText(val);
+            alert("Berhasil disalin ke clipboard!");
+        }
+    </script>
+</body>
+</html>
