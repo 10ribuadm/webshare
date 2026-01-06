@@ -1,0 +1,9 @@
+# Arrisalah Viral Tools Robots.txt
+User-agent: *
+Allow: /
+
+# Cegah bot merayapi file sistem (jika ada)
+Disallow: /private/
+
+# Beritahu lokasi peta situs ke Google
+Sitemap: https://arrisalahbslotim.org/sitemap.xml
